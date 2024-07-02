@@ -3,13 +3,9 @@ export const Footer = () => {
 	return (
 		<footer className="footer">
 			<div className="container footer__container">
-				<img className="footer__logo" src="img/logo.svg"
-					alt="Логотип Mirano Flower Boutique" />
-
+				<img className="footer__logo" src="img/logo.svg" alt="Логотип Mirano Flower Boutique" />
 				<address className="footer__address">
-					<a className="footer__mail"
-						href="mailto:Mirano@gmail.com">Mirano@gmail.com</a>
-
+					<a className="footer__mail" href="mailto:Mirano@gmail.com">Mirano@gmail.com</a>
 					<ul className="footer__social-list">
 						<li className="footer__social-item">
 							<a className="footer__link" href="#" aria-label="канал в телеграм">
@@ -51,14 +47,15 @@ export const Footer = () => {
 
 					<ul className="footer__developers-list">
 						<li className="footer__developers-item">
-							Designer: <a className="footer__link" href="Anastasia_Ilina">Anastasia Ilina</a>
+							Designer:
+							<a className="footer__link" href="Anastasia_Ilina">Anastasia Ilina</a>
 						</li>
 						<li className="footer__developers-item">
-							Developer: <a className="footer__link" href="maksim_leskin">Makism Leskin</a>
+							Developer:
+							<a className="footer__link" href="maksim_leskin">Makism Leskin</a>
 						</li>
 					</ul>
 				</div>
-
 				<p className="footer__copyright">©MIRANO, 2024</p>
 			</div>
 		</footer>

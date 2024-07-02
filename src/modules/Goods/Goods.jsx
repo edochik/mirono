@@ -1,6 +1,7 @@
 import { Cart } from "../Cart/Cart.jsx";
 import { goodsArray } from "../../goodsArray.js";
 import { Card } from "../Card/Card.jsx";
+import './goods.scss'
 export const Goods = () => {
 	return (
 		<section className="goods">

@@ -1,3 +1,5 @@
+import './card.scss'
+
 import classNames from "classnames"
 export const Card = ({ className, img, title, dateDelivery, price }) => {
 	return (
@@ -15,5 +17,4 @@ export const Card = ({ className, img, title, dateDelivery, price }) => {
 			</div>
 		</article>
 	)
-
 }

@@ -1,10 +1,11 @@
+import './header.scss'
+
 export const Header = () => {
 	return (
 		<header className="header">
 			<div className="container header__container">
 				<form className="header__form" action="#">
 					<input className="header__input" type="search" name="search" placeholder="Букет из роз" />
-
 					<button className="header__search-button" aria-label="начать поиск">
 						<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
 							xmlns="http://www.w3.org/2000/svg">
