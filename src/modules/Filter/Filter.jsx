@@ -1,5 +1,6 @@
 import './filter.scss'
-import './choices.scss'
+
+import { Choices } from "../Choices/Choices.jsx"
 
 export const Filter = () => {
 	return (
@@ -15,17 +16,14 @@ export const Filter = () => {
 						<input className="filter__radio" type="radio" name="type" value="postcards" id="postcard" />
 						<label className="filter__label filter__label_postcard" htmlFor="postcard">Открытки</label>
 					</fieldset>
-					<fieldset className="filter__group filter__group_choices">
-						<div className="filter__choices choices">
-							<button className="filter__select choices__btn" type="button">Цена</button>
-							<div className="choices__box filter__choices-box">
-								<fieldset className="filter__price">
-									<input className="filter__input-price" type="text" name="minPrice" placeholder="от" />
-									<input className="filter__input-price" type="text" name="maxPrice" placeholder="до" />
-								</fieldset>
-							</div>
-						</div>
-						<div className="filter__choices filter__choices_type choices">
+					<div className="filter__group filter__group_choices">
+						<Choices buttonLabel="Выбрать по цене">
+							<fieldset className="filter__price">
+								<input className="filter__input-price" type="text" name="minPrice" placeholder="от" />
+								<input className="filter__input-price" type="text" name="maxPrice" placeholder="до" />
+							</fieldset>
+						</Choices>
+						<Choices className="filter__choices_type">
 							<button className="filter__select choices__btn" type="button">Тип	товара</button>
 							<div className="choices__box filter__choices-box filter__choices-box_type">
 								<ul className="filter__type-list">
@@ -46,8 +44,8 @@ export const Filter = () => {
 									</li>
 								</ul>
 							</div>
-						</div>
-					</fieldset>
+						</Choices>
+					</div>
 				</form>
 			</div>
 		</section>
