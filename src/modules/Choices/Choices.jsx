@@ -13,9 +13,7 @@ export const Choices = ({ children, buttonLabel, className }) => {
 				type="button"
 				onClick={onClickToggle}
 			>{buttonLabel}</button>
-			{isOpen && <div className="choices__box">
-				{children}
-			</div>}
+			{isOpen && <div className="choices__box">{children}</div>}
 		</div>
 	)
 }

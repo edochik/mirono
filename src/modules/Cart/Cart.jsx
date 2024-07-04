@@ -1,14 +1,22 @@
+import { useDispatch, useSelector } from "react-redux"
 import { goodsArray } from "../../goodsArray.js"
 import { CartItem } from "../CartItem/CartItem.jsx"
 import './cart.scss'
+import { toggleCart } from "../../redux/cartSlice.js"
 
 export const Cart = () => {
+	const isOpen = useSelector(state => state.cart.isOpen);
+	const dispatch = useDispatch();
+	const onClickClose = () => {
+		dispatch(toggleCart())
+	}
+	if (!isOpen) return null;
 	return (
 		<section className="cart cart_open">
 			<div className="cart__container">
 				<div className="cart__header">
 					<h3 className="cart__title">Ваш заказ</h3>
-					<button className="cart__close">
+					<button className="cart__close" onClick={onClickClose}>
 						<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<rect x="5" y="5.70715" width="1" height="25" transform="rotate(-45 5 5.70715)" fill="#D17D2F" />
 							<rect x="22.6777" y="5" width="1" height="25" transform="rotate(45 22.6777 5)" fill="#D17D2F" />
