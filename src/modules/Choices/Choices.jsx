@@ -1,11 +1,7 @@
 import './choices.scss'
 import classnames from "classnames"
-import { useState } from "react"
-export const Choices = ({ children, buttonLabel, className }) => {
-	const [isOpen, setIsOpen] = useState(false);
-	const onClickToggle = () => {
-		setIsOpen(prev => !prev)
-	}
+export const Choices = ({ children, buttonLabel, className, isOpen, onClickToggle }) => {
+
 	return (
 		<div className={classnames('choices', className)}>
 			<button
