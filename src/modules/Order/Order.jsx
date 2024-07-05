@@ -1,8 +1,9 @@
+import { useSelector } from "react-redux";
 import './order.scss'
 
 export const Order = () => {
-	const isOpen = false;
 	const isOrder = false;
+	const isOpen = useSelector(state => state.order.isOpen);
 	if (!isOpen) return null;
 	if (isOrder) {
 		return (

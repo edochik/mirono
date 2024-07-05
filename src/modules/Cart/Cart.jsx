@@ -2,13 +2,17 @@ import { useDispatch, useSelector } from "react-redux"
 import { goodsArray } from "../../goodsArray.js"
 import { CartItem } from "../CartItem/CartItem.jsx"
 import './cart.scss'
+import { openModal } from "../../redux/orderSlice.js"
 import { toggleCart } from "../../redux/cartSlice.js"
 
 export const Cart = () => {
 	const isOpen = useSelector(state => state.cart.isOpen);
 	const dispatch = useDispatch();
-	const onClickClose = () => {
+	const onClickCloseCart = () => {
 		dispatch(toggleCart())
+	}
+	const onClickOpenOrder = () => {
+		dispatch(openModal())
 	}
 	if (!isOpen) return null;
 	return (
@@ -16,7 +20,7 @@ export const Cart = () => {
 			<div className="cart__container">
 				<div className="cart__header">
 					<h3 className="cart__title">Ваш заказ</h3>
-					<button className="cart__close" onClick={onClickClose}>
+					<button className="cart__close" onClick={onClickCloseCart}>
 						<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<rect x="5" y="5.70715" width="1" height="25" transform="rotate(-45 5 5.70715)" fill="#D17D2F" />
 							<rect x="22.6777" y="5" width="1" height="25" transform="rotate(45 22.6777 5)" fill="#D17D2F" />
@@ -31,7 +35,7 @@ export const Cart = () => {
 				</ul>
 
 				<div className="cart__footer">
-					<button className="cart__order-btn">Оформить</button>
+					<button className="cart__order-btn" onClick={onClickOpenOrder}>Оформить</button>
 					<p className="cart__price cart__price_total">0&nbsp;₽</p>
 				</div>
 			</div>
