@@ -1,23 +1,44 @@
 import './filter.scss'
 import { useState } from "react";
 import { Choices } from "../Choices/Choices.jsx"
+import { useDispatch } from "react-redux";
+import { fetchGoods } from "../../redux/goodsSlice.js";
 
 export const Filter = () => {
+	const dispatch = useDispatch()
 	const [openChoice, setOpenChoice] = useState(null);
-	const onClickToggleChoices = (index) => [
+	const onClickToggleChoices = (index) => {
 		setOpenChoice(openChoice === index ? null : index)
-	]
+	}
+
+	const onClickFilter = (еvent) => {
+		dispatch(fetchGoods({ type: еvent.target.value }))
+	}
+
 	return (
 		<section className="filter">
 			<h2 className="visually-hidden"></h2>
 			<div className="container">
 				<form className="filter__form">
 					<fieldset className="filter__group">
-						<input className="filter__radio" type="radio" name="type" value="bouquets" id="flower" defaultChecked />
+						<input
+							className="filter__radio"
+							type="radio"
+							name="type"
+							value="bouquets"
+							id="flower"
+							onClick={onClickFilter}
+							defaultChecked />
 						<label className="filter__label filter__label_flower" htmlFor="flower">Цветы</label>
-						<input className="filter__radio" type="radio" name="type" value="toys" id="toys" />
+						<input
+							className="filter__radio"
+							type="radio"
+							name="type"
+							value="toys"
+							id="toys"
+							onClick={onClickFilter} />
 						<label className="filter__label filter__label_toys" htmlFor="toys">Игрушки</label>
-						<input className="filter__radio" type="radio" name="type" value="postcards" id="postcard" />
+						<input className="filter__radio" type="radio" name="type" value="postcards" id="postcard" onClick={onClickFilter} />
 						<label className="filter__label filter__label_postcard" htmlFor="postcard">Открытки</label>
 					</fieldset>
 					<div className="filter__group filter__group_choices">

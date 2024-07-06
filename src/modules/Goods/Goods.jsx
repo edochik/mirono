@@ -1,5 +1,4 @@
 import { Cart } from "../Cart/Cart.jsx";
-import { goodsArray } from "../../goodsArray.js";
 import { Card } from "../Card/Card.jsx";
 import './goods.scss'
 import { useDispatch, useSelector } from "react-redux";
@@ -13,16 +12,18 @@ export const Goods = () => {
 		status: goodsStatus,
 		error,
 	} = useSelector(state => state.goods);
+
 	useEffect(() => {
 		if (goodsStatus === 'idle') {
-			dispatch(fetchGoods())
+			dispatch(fetchGoods({ type: 'bouquets' }))
 		}
 	}, [dispatch, goodsStatus])
-	console.log(goodsStatus)
+
 	let content = null;
 	if (goodsStatus === 'loading') {
 		content = <p>Loading...</p>
 	}
+
 	if (goodsStatus === 'success') {
 		content = (
 			<ul className="goods__list">
@@ -41,9 +42,11 @@ export const Goods = () => {
 			</ul>
 		)
 	}
+
 	if (goodsStatus === 'failed') {
 		content = <p> {error}</p>
 	}
+	
 	return (
 		<section className="goods">
 			<div className="container goods__container">

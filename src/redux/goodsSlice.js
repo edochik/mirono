@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { API_URL } from "../const.js"
-
+// https://mirano-api-6ngx.onrender.com/api/products?type=toys
 export const fetchGoods = createAsyncThunk('goods/fetchGoods',
-	async () => {
-		const response = await fetch(`${API_URL}/api/products`);
+	async (params) => {
+		const queryString = new URLSearchParams(params).toString();
+		const response = await fetch(`${API_URL}/api/products?${queryString ? `${queryString}` : ""}`);
 		return await response.json();
 	})
 

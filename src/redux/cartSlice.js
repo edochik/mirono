@@ -27,5 +27,8 @@ const cartSlice = createSlice({
 })
 
 export const { toggleCart, addItemToCart } = cartSlice.actions;
+export const quantityProducts = (state) => {
+	return state.cart.items.reduce((acc, item) => acc + item.count, 0)
+}
 
 export default cartSlice.reducer
